@@ -1,31 +1,46 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <v-app dark>
+      <v-top-nav absolute :value="true" :active.sync="activeTab" color="transparent" center>
+        <!-- Feed -->
+        <router-link to="/" tag="v-btn">
+          <v-btn color="white" flat value="feed">
+            <span>SignIn</span>
+            <v-icon>question_answer</v-icon>
+          </v-btn>
+        </router-link>
+
+        <!-- Profile -->
+        <router-link to="/signup" tag="v-btn">
+          <v-btn color="white" flat value="profile">
+            <span>SignUp</span>
+            <v-icon>person</v-icon>
+          </v-btn>
+        </router-link>
+
+        <!-- Inbox -->
+        <v-btn color="white" flat value="inbox">
+          <span>Inbox</span>
+          <v-icon>email</v-icon>
+        </v-btn>
+      </v-top-nav>
+      <router-view></router-view>
+    </v-app>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import HelloWorld from "./components/HelloWorld";
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default {
+  name: "App",
+  components: {
+    HelloWorld
+  },
+  data() {
+    return {
+      routes: []
+    };
+  }
+};
+</script>
