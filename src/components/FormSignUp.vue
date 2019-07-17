@@ -1,18 +1,12 @@
 <template>
   <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field v-model="name" :rules="nameRules" label="Nome" required></v-text-field>
+    <v-text-field v-model="name" label="Nome" required></v-text-field>
 
-    <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+    <v-text-field v-model="email" label="E-mail" required></v-text-field>
 
-    <v-text-field v-model="password" type="password" :rules="passwordRules" label="Senha" required></v-text-field>
+    <v-text-field v-model="password" type="password" label="Senha" required></v-text-field>
 
-    <v-text-field
-      v-model="confirmPassword"
-      type="password"
-      :rules="passwordRules"
-      label="Confirmar Senha"
-      required
-    ></v-text-field>
+    <v-text-field v-model="confirmPassword" type="password" label="Confirmar Senha" required></v-text-field>
 
     <v-checkbox
       v-model="checkbox"
@@ -21,6 +15,29 @@
       required
     ></v-checkbox>
 
-    <v-btn color="success" @click="resetValidation">SignUp</v-btn>
+    <v-btn color="success">SignUp</v-btn>
   </v-form>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      checkbox: false,
+      valid: ""
+    };
+  },
+  methods: {
+    test() {
+      console.log(this.valid);
+    }
+  }
+};
+</script>
+
+<style>
+</style>

@@ -1,10 +1,10 @@
 <template>
   <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field v-model="name" :rules="nameRules" label="Name" required></v-text-field>
+    <v-text-field v-model="name" label="Name" required></v-text-field>
 
-    <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
+    <v-text-field v-model="email" label="E-mail" required></v-text-field>
 
-    <v-btn color="success" @click="resetValidation">SignIn</v-btn>
+    <v-btn color="success">SignIn</v-btn>
   </v-form>
 </template>
 
@@ -14,7 +14,8 @@ export default {
     return {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      valid: ""
     };
   }
 };
