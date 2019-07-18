@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
+  <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="test">
     <v-text-field v-model="name" label="Nome" required></v-text-field>
 
     <v-text-field v-model="email" label="E-mail" required></v-text-field>
@@ -15,7 +15,7 @@
       required
     ></v-checkbox>
 
-    <v-btn color="success">SignUp</v-btn>
+    <v-btn color="success" type="submit">SignUp</v-btn>
   </v-form>
 </template>
 
@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     test() {
-      console.log(this.valid);
+      console.log(this.name, this.checkbox);
     }
   }
 };
