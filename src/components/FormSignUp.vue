@@ -1,5 +1,5 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation @submit.prevent="test">
+  <v-form ref="form" lazy-validation @submit.prevent="handleSubmit">
     <v-text-field v-model="name" label="Nome" required></v-text-field>
 
     <v-text-field v-model="email" label="E-mail" required></v-text-field>
@@ -20,20 +20,40 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+import { ifError } from "assert";
 export default {
+  computed: mapState(["isLogged"]),
   data() {
     return {
       name: "",
       email: "",
       password: "",
       confirmPassword: "",
-      checkbox: false,
-      valid: ""
+      checkbox: false
     };
   },
   methods: {
-    test() {
-      console.log(this.name, this.checkbox);
+    ...mapMutations(["CHANGE_LOGIN"]),
+    handleSubmit() {
+      const { name, email, password, confirmPassword, checkbox } = this;
+      if (!name || !email || !password || !confirmPassword) {
+        console.log("Erro");
+        return;
+      }
+      if (!checkbox) {
+        console.log("Aceite os termos pra continuar");
+        return;
+      }
+      if (password !== confirmPassword) {
+        console.log("Senhas precisam ser iguais");
+        return;
+      }
+      if (password.length > 5) {
+        console.log("Senha precisa ter pelo menos 6 digitos");
+        return;
+      }
+      this.CHANGE_LOGIN();
     }
   }
 };

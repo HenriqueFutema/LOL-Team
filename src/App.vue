@@ -19,15 +19,17 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld";
-
+import { mapState } from 'vuex'
 export default {
   name: "App",
+  computed: mapState([
+    'isLogged'
+  ]),
   components: {
     HelloWorld
   },
   data() {
     return {
-      isLogged: false
     };
   }
 };

@@ -5,14 +5,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        title: 'Testando o VueX',
+        isLogged: false,
 
     },
     getters: {
 
     },
     mutations: {
-
+        CHANGE_LOGIN: (state, link) => {
+            state.isLogged = !state.isLogged
+        },
     },
     actions: {
 
