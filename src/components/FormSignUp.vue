@@ -55,11 +55,15 @@ export default {
         return;
       }
 
-      //const user = await api.post("signup", { name, email, password });
-      //console.log(user);
-
-      this.CHANGE_LOGIN();
-      this.$router.push({ name: "home", query: { redirect: "/" } });
+      const user = await api
+        .post("signup", { name, email, password })
+        .then(function() {
+          console.log("test");
+          this.$router.push({ name: "home", query: { redirect: "/" } });
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 };
