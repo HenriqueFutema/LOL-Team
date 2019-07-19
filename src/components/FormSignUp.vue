@@ -21,7 +21,8 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import { ifError } from "assert";
+import api from "../services/api";
+
 export default {
   computed: mapState(["isLogged"]),
   data() {
@@ -35,7 +36,7 @@ export default {
   },
   methods: {
     ...mapMutations(["CHANGE_LOGIN"]),
-    handleSubmit() {
+    async handleSubmit() {
       const { name, email, password, confirmPassword, checkbox } = this;
       if (!name || !email || !password || !confirmPassword) {
         console.log("Erro");
@@ -49,11 +50,16 @@ export default {
         console.log("Senhas precisam ser iguais");
         return;
       }
-      if (password.length > 5) {
+      if (password.length < 5) {
         console.log("Senha precisa ter pelo menos 6 digitos");
         return;
       }
+
+      //const user = await api.post("signup", { name, email, password });
+      //console.log(user);
+
       this.CHANGE_LOGIN();
+      this.$router.push({ name: "home", query: { redirect: "/" } });
     }
   }
 };
