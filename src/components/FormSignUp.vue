@@ -23,6 +23,8 @@
 import { mapState, mapMutations } from "vuex";
 import api from "../services/api";
 
+import swal from "sweetalert";
+
 export default {
   computed: mapState(["isLogged"]),
   data() {
@@ -39,27 +41,28 @@ export default {
     async handleSubmit() {
       const { name, email, password, confirmPassword, checkbox } = this;
       if (!name || !email || !password || !confirmPassword) {
-        console.log("Erro");
+        swal("Erro", "Preencha todos os campos", "error");
         return;
       }
       if (!checkbox) {
-        console.log("Aceite os termos pra continuar");
+        swal("Termos", "Aceite os termos pra continuar", "error");
         return;
       }
       if (password !== confirmPassword) {
-        console.log("Senhas precisam ser iguais");
+        swal("Senhas diferentes", "Senhas precisam ser iguais", "error");
         return;
       }
       if (password.length < 5) {
-        console.log("Senha precisa ter pelo menos 6 digitos");
+        swal("Senha fraca", "Senha precisa ter pelo menos 6 digitos", "error");
         return;
       }
-
+      let that = this
       const user = await api
         .post("signup", { name, email, password })
         .then(function() {
+          swal("Usuário criado!", "Usúario criado com sucesso", "success");
+          that.$router.push({ name: "home", query: { redirect: "/" } });
           console.log("test");
-          this.$router.push({ name: "home", query: { redirect: "/" } });
         })
         .catch(function(error) {
           console.log(error);
