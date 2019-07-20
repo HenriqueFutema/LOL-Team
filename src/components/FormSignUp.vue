@@ -37,7 +37,6 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["CHANGE_LOGIN"]),
     async handleSubmit() {
       const { name, email, password, confirmPassword, checkbox } = this;
       if (!name || !email || !password || !confirmPassword) {
@@ -56,7 +55,7 @@ export default {
         swal("Senha fraca", "Senha precisa ter pelo menos 6 digitos", "error");
         return;
       }
-      let that = this
+      let that = this;
       const user = await api
         .post("signup", { name, email, password })
         .then(function() {

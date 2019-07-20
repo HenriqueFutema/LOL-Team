@@ -1,22 +1,44 @@
 <template>
-  <v-form ref="form" v-model="valid" lazy-validation>
-    <v-text-field v-model="name" label="Name" required></v-text-field>
-
+  <v-form ref="form" @submit.prevent="handleSubmit" lazy-validation>
     <v-text-field v-model="email" label="E-mail" required></v-text-field>
 
-    <v-btn color="success">SignIn</v-btn>
+    <v-text-field v-model="password" label="Senha" type="password" required></v-text-field>
+
+    <v-btn color="success" type="submit">SignIn</v-btn>
   </v-form>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+import api from "../services/api";
+import swal from "sweetalert";
 export default {
   data() {
     return {
-      name: "",
       email: "",
-      password: "",
-      valid: ""
+      password: ""
     };
+  },
+  methods: {
+    ...mapMutations(["CHANGE_LOGIN"]),
+    async handleSubmit() {
+      const { email, password } = this;
+      if (!email || !password) {
+        swal("Erro", "Preencha todos o campos", "error");
+        return;
+      }
+      await api
+        .post("signin", { email, password })
+        .then(function(response) {
+          console.log(email, password);
+          console.log(response.data);
+          this.CHANGE_LOGIN();
+          swal("Bem Vindo!", "Usuário cadastrado com sucesso", "success");
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
   }
 };
 </script>
