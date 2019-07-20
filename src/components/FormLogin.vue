@@ -27,12 +27,14 @@ export default {
         swal("Erro", "Preencha todos o campos", "error");
         return;
       }
+      let that = this;
+
       await api
         .post("signin", { email, password })
         .then(function(response) {
           console.log(email, password);
           console.log(response.data);
-          this.CHANGE_LOGIN();
+          that.CHANGE_LOGIN();
           swal("Bem Vindo!", "Usuário cadastrado com sucesso", "success");
         })
         .catch(function(error) {
