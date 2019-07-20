@@ -12,6 +12,26 @@
           <v-icon>person</v-icon>
         </v-btn>
       </v-bottom-nav>
+
+      <v-bottom-nav absolute :value="true" color="transparent" center v-if="isLogged">
+        <v-btn>
+          <span>Players</span>
+          <v-icon>person</v-icon>
+        </v-btn>
+
+        <v-btn >
+          <span>Teams</span>
+          <v-icon>person</v-icon>
+        </v-btn>
+
+        <v-btn>
+          <span>Profile</span>
+          <v-icon>person</v-icon>
+        </v-btn>
+
+
+      </v-bottom-nav>
+
       <router-view></router-view>
     </v-app>
   </div>
