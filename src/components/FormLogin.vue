@@ -12,6 +12,7 @@
 import { mapMutations } from "vuex";
 import api from "../services/api";
 import swal from "sweetalert";
+
 export default {
   data() {
     return {
@@ -38,7 +39,8 @@ export default {
           swal("Bem Vindo!", "Usuário cadastrado com sucesso", "success");
         })
         .catch(function(error) {
-          console.log(error);
+          let err = error.response.data;
+          swal(`${err}`, "Tente novamente", "error");
         });
     }
   }
