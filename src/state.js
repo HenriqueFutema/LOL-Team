@@ -14,7 +14,8 @@ export default new Vuex.Store({
     mutations: {
         CHANGE_LOGIN: (state, link) => {
             state.isLogged = !state.isLogged
-        },
+        }
+
     },
     actions: {
 

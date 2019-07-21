@@ -3,7 +3,18 @@
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  computed: mapState(["isLogged"]),
+  data() {
+    return {};
+  },
+  created: function() {
+    if (!this.isLogged) {
+      this.$router.push({ name: "home", query: { redirect: "/" } });
+    }
+  }
+};
 </script>
 
 <style>
