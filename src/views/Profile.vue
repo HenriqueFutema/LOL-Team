@@ -7,10 +7,12 @@ import { mapState, mapGetters } from "vuex";
 import api from "../services/api";
 
 import ModalDescription from "../components/ModalDescription";
+import ProfileComponent from "../components/ProfileComponent";
 
 export default {
   components: {
-    ModalDescription
+    ModalDescription,
+    ProfileComponent
   },
   computed: {
     ...mapState(["isLogged"]),
