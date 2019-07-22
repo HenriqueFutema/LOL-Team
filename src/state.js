@@ -6,11 +6,13 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         isLogged: false,
-        idUser: 'tesf',
-        tokenUser: 'sdfsd'
+        idUser: '',
+        tokenUser: ''
     },
     getters: {
-
+        getIdUser: state => {
+            return state.idUser
+        }
     },
     mutations: {
         CHANGE_LOGIN: (state) => {

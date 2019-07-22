@@ -3,9 +3,12 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 export default {
-  computed: mapState(["isLogged", "idUser", "tokenUser"]),
+  computed: {
+    ...mapState(["isLogged"]),
+    ...mapGetters(["getIdUser"])
+  },
   data() {
     return {};
   },
