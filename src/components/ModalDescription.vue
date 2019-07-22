@@ -8,7 +8,9 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" flat @click="dialog = false">Adicionar</v-btn>
+          <v-form @submit.prevent="handleSubmit">
+            <v-btn color="green darken-1" flat type="submit">Adicionar</v-btn>
+          </v-form>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -21,6 +23,11 @@ export default {
     return {
       dialog: true
     };
+  },
+  methods: {
+    handleSubmit: async function() {
+      this.dialog = false;
+    }
   }
 };
 </script>
