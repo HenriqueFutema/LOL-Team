@@ -1,5 +1,5 @@
 <template>
-  <h1>Profile {{isLogged}}</h1>
+  <h1>Perfil</h1>
 </template>
 
 <script>

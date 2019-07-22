@@ -37,6 +37,8 @@ export default {
           console.log(response.data);
           that.CHANGE_LOGIN();
           swal("Bem Vindo!", "Usuário cadastrado com sucesso", "success");
+          that.$router.push({ name: "profile", query: { redirect: "/profile" } });
+
         })
         .catch(function(error) {
           let err = error.response.data;
