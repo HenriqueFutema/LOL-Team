@@ -7,7 +7,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   computed: {
     ...mapState(["isLogged"]),
-    ...mapGetters(["getIdUser"])
+    ...mapGetters(["getIdUser", "getTokenUser"])
   },
   data() {
     return {};

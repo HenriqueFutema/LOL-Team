@@ -12,6 +12,9 @@ export default new Vuex.Store({
     getters: {
         getIdUser: state => {
             return state.idUser
+        },
+        getTokenUser: state => {
+            return state.tokenUser
         }
     },
     mutations: {
