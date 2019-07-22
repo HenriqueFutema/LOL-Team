@@ -21,7 +21,7 @@ export default {
     };
   },
   methods: {
-    ...mapMutations(["CHANGE_LOGIN"]),
+    ...mapMutations(["CHANGE_LOGIN", "SAVE_LOGIN"]),
     async handleSubmit() {
       const { email, password } = this;
       if (!email || !password) {
@@ -35,10 +35,15 @@ export default {
         .then(function(response) {
           console.log(email, password);
           console.log(response.data);
+
+          const data = response.data;
           that.CHANGE_LOGIN();
           swal("Bem Vindo!", "Usuário cadastrado com sucesso", "success");
-          that.$router.push({ name: "profile", query: { redirect: "/profile" } });
-
+          that.$router.push({
+            name: "profile",
+            query: { redirect: "/profile" }
+          });
+          that.SAVE_LOGIN(data);
         })
         .catch(function(error) {
           let err = error.response.data;

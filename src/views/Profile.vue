@@ -5,7 +5,7 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  computed: mapState(["isLogged"]),
+  computed: mapState(["isLogged", "idUser", "tokenUser"]),
   data() {
     return {};
   },
