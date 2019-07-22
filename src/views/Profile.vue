@@ -1,12 +1,17 @@
 <template>
-  <h1>Perfil</h1>
+  <ModalDescription />
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
 import api from "../services/api";
 
+import ModalDescription from "../components/ModalDescription";
+
 export default {
+  components: {
+    ModalDescription
+  },
   computed: {
     ...mapState(["isLogged"]),
     ...mapGetters(["getIdUser", "getTokenUser"])
