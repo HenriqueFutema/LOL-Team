@@ -4,12 +4,18 @@
       <v-card>
         <v-card-title class="headline">Adicione uma descrição</v-card-title>
         <v-card-text>
-          <v-textarea outline name="input-7-4" label="Fale sobre você" value></v-textarea>
+          <v-textarea
+            outline
+            name="input-7-4"
+            label="Fale sobre você"
+            v-model="description"
+            @change="handleInputChange"
+          ></v-textarea>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-form @submit.prevent="handleSubmit">
-            <v-btn color="green darken-1" flat type="submit">Adicionar</v-btn>
+            <v-btn color="green darken-1" flat type="submit" :disabled="textOk">Adicionar</v-btn>
           </v-form>
         </v-card-actions>
       </v-card>
@@ -21,8 +27,19 @@
 export default {
   data() {
     return {
-      dialog: true
+      description: "",
+      dialog: true,
+      textOk: true
     };
+  },
+  watch: {
+    description: function(val) {
+      if (val !== "") {
+        this.textOk = false;
+      } else {
+        this.textOk = true;
+      }
+    }
   },
   methods: {
     handleSubmit: async function() {
