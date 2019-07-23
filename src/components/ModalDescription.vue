@@ -4,13 +4,7 @@
       <v-card>
         <v-card-title class="headline">Adicione uma descrição</v-card-title>
         <v-card-text>
-          <v-textarea
-            outline
-            name="input-7-4"
-            label="Fale sobre você"
-            v-model="description"
-            @change="handleInputChange"
-          ></v-textarea>
+          <v-textarea outline name="input-7-4" label="Fale sobre você" v-model="description"></v-textarea>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -24,13 +18,21 @@
 </template>
 
 <script>
+import api from "../services/api";
+
+import { mapGetters } from "vuex";
+
 export default {
+  props: ["user"],
   data() {
     return {
       description: "",
       dialog: true,
       textOk: true
     };
+  },
+  computed: {
+    ...mapGetters(["getIdUser", "getTokenUser"])
   },
   watch: {
     description: function(val) {
@@ -43,6 +45,17 @@ export default {
   },
   methods: {
     handleSubmit: async function() {
+      const user = this.user;
+      await api.put(
+        `user/${this.getIdUser}`,
+        {
+          user,
+          description: this.description
+        },
+        {
+          headers: { Authorization: "Bearer " + this.getTokenUser }
+        }
+      );
       this.dialog = false;
     }
   }

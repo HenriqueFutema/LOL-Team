@@ -3,7 +3,7 @@
     <v-layout text-xs-center wrap>
       <v-flex xs12>
         <h1 class="display-3 font-weight-thin">LOL Team</h1>
-        <ModalDescription v-if="!user.description" />
+        <ModalDescription v-if="!user.description" v-bind:user="user" />
         <ProfileComponent v-else v-bind:user="user" />
       </v-flex>
     </v-layout>
