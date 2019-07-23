@@ -1,11 +1,11 @@
 <template>
   <v-container>
-    <v-layout text-xs-center wrap>
+    <v-layout text-xs-left wrap>
       <v-flex xs12>
         <h1 class="display-3 font-weight-thin">Profile</h1>
-        <h3 class="display-6 font-weight-thin">{{user.name}}</h3>
-        <h3 class="display-6 font-weight-thin">{{user.email}}</h3>
-        <h3 class="display-6 font-weight-thin">{{user.description}}</h3>
+        <h3 class="display-1 font-weight-thin border">Nome: {{user.name}}</h3>
+        <h3 class="display-1 font-weight-thin">Email: {{user.email}}</h3>
+        <h3 class="display-1 font-weight-thin">Descrição: {{user.description}}</h3>
       </v-flex>
     </v-layout>
   </v-container>
