@@ -1,6 +1,6 @@
 <template>
   <v-layout row justify-center>
-    <v-dialog v-model="dialog" persistent max-width="290">
+    <v-dialog class="modal" v-model="dialog" persistent max-width="290">
       <v-card>
         <v-card-title class="headline">Adicione uma descrição</v-card-title>
         <v-card-text>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       description: "",
-      dialog: true,
+      dialog: false,
       textOk: true
     };
   },
@@ -41,6 +41,11 @@ export default {
       } else {
         this.textOk = true;
       }
+    }
+  },
+  created: function() {
+    if (!this.user.description) {
+      this.dialog = true;
     }
   },
   methods: {
@@ -57,10 +62,13 @@ export default {
         }
       );
       this.dialog = false;
+      this.$router.push({
+        name: "teams",
+        query: { redirect: "/teams" }
+      });
     }
   }
 };
 </script>
 
-<style>
-</style>
+
