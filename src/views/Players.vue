@@ -1,10 +1,15 @@
 <template>
-  <h1>Players</h1>
+  <PlayersComponent />
 </template>
 
 <script>
+import PlayersComponent from "../components/PlayersComponent";
+
 import { mapState } from "vuex";
 export default {
+  components: {
+    PlayersComponent
+  },
   computed: mapState(["isLogged"]),
   data() {
     return {};
