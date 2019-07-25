@@ -1,19 +1,15 @@
 <template>
   <v-container fluid grid-list-xl>
     <v-layout justify-space-between text-xs-left>
-      <v-flex xs6 md2>
+      <v-flex xs6 md4 v-for="user in users" :key="user.id">
         <v-card dark color="secondary">
-          <v-card-text>one</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs6 md2>
-        <v-card dark color="secondary">
-          <v-card-text>two</v-card-text>
-        </v-card>
-      </v-flex>
-      <v-flex xs6 md2>
-        <v-card dark color="secondary">
-          <v-card-text>three</v-card-text>
+          <v-card-title>
+            <h1 class="font-weight-thin">{{ user.name }}</h1>
+          </v-card-title>
+          <v-card-text>
+            <h3 class="font-weight-thin">{{ user.description }}</h3>
+          </v-card-text>
+          <v-card-text>{{ user.email }}</v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
@@ -34,10 +30,12 @@ export default {
     };
   },
   created: async function() {
-    this.users = await api.get("users", {
+    const response = await api.get("users", {
       headers: { Authorization: "Bearer " + this.getTokenUser }
     });
-    console.log(this.users.data.docs);
+
+    this.users = response.data.docs;
+    console.table(this.users);
   }
 };
 </script>
