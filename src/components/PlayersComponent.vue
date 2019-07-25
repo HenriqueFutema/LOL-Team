@@ -1,8 +1,20 @@
 <template>
-  <v-container>
-    <v-layout text-xs-center wrap>
-      <v-flex xs12>
-        <h1 class="display-3 font-weight-thin">LOL Team</h1>
+  <v-container fluid grid-list-xl>
+    <v-layout justify-space-between text-xs-left>
+      <v-flex xs6 md2>
+        <v-card dark color="secondary">
+          <v-card-text>one</v-card-text>
+        </v-card>
+      </v-flex>
+      <v-flex xs6 md2>
+        <v-card dark color="secondary">
+          <v-card-text>two</v-card-text>
+        </v-card>
+      </v-flex>
+      <v-flex xs6 md2>
+        <v-card dark color="secondary">
+          <v-card-text>three</v-card-text>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
