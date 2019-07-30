@@ -4,7 +4,7 @@
       <v-flex xs12>
         <v-card>
           <v-card-title>
-            <h1 class="display-3 font-weight-thin">Profile</h1>
+            <h1 class="display-3 font-weight-thin green--text">Profile</h1>
           </v-card-title>
           <v-card-text>
             <h3 class="headline font-weight-thin border">Nome: {{user.name}}</h3>
