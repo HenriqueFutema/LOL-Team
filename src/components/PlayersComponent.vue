@@ -10,6 +10,9 @@
             <h3 class="font-weight-thin">{{ user.description }}</h3>
             <h3 class="font-weight-thin">{{ user.email }}</h3>
           </v-card-text>
+          <v-btn class="ma-2" color="green" dark>
+            <v-icon dark>mdiPencil</v-icon>
+          </v-btn>
         </v-card>
       </v-flex>
     </v-layout>
@@ -19,6 +22,7 @@
 <script>
 import api from "../services/api";
 import { mapGetters } from "vuex";
+import mdiPencil from "@mdi/js";
 
 export default {
   computed: {
