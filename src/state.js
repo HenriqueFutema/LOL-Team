@@ -25,7 +25,6 @@ export default new Vuex.Store({
         SAVE_LOGIN: (state, data) => {
             state.idUser = data.user._id
             state.tokenUser = data.token
-            console.log(state.tokenUser, state.idUser);
 
         }
 

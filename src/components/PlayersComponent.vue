@@ -35,7 +35,6 @@ export default {
     });
 
     this.users = response.data.docs;
-    console.table(this.users);
   }
 };
 </script>
