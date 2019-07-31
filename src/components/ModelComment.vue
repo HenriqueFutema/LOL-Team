@@ -16,12 +16,12 @@
                 </v-flex>
               </v-layout>
             </v-container>
-            <small>*Preencher todos os campos</small>
+            <small v-if="er">*Preencher todos os campos</small>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="dark" text @click="closeModal">Close</v-btn>
-            <v-btn color="green" text @click="closeModal">Enviar</v-btn>
+            <v-btn color="green" text type="submit">Enviar</v-btn>
           </v-card-actions>
         </v-form>
       </v-card>
@@ -36,9 +36,20 @@ export default {
     user: Object
   },
   data: () => ({
+    er: false,
     dialog: true,
     title: "",
     content: ""
-  })
+  }),
+  methods: {
+    handleSubmit: async function() {
+      const { title, content } = this;
+      if (!title || !content) {
+        this.er = true;
+      } else {
+        this.closeModal();
+      }
+    }
+  }
 };
 </script>
