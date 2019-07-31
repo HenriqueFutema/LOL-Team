@@ -41,6 +41,7 @@ export default {
       headers: { Authorization: "Bearer " + this.getTokenUser }
     });
     this.user = response.data;
+    console.log(this.user);
   }
 };
 </script>
