@@ -36,7 +36,9 @@ export default {
     user: Object
   },
   data: () => ({
-    dialog: true
+    dialog: true,
+    title: "",
+    content: ""
   })
 };
 </script>
