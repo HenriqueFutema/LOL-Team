@@ -2,7 +2,7 @@
   <v-form ref="form" lazy-validation @submit.prevent="handleSubmit">
     <v-text-field v-model="name" label="Nome" required></v-text-field>
 
-    <v-text-field v-model="nickName" label="NickName no Lol" required></v-text-field>
+    <v-text-field v-model="nickName" label="NickName" required></v-text-field>
 
     <v-text-field v-model="email" label="E-mail" required></v-text-field>
 
@@ -41,8 +41,15 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const { name, email, password, confirmPassword, checkbox } = this;
-      if (!name || !email || !password || !confirmPassword) {
+      const {
+        name,
+        email,
+        nickName,
+        password,
+        confirmPassword,
+        checkbox
+      } = this;
+      if (!name || !email || !password || !confirmPassword || !nickName) {
         swal("Erro", "Preencha todos os campos", "error");
         return;
       }
