@@ -2,6 +2,8 @@
   <v-form ref="form" lazy-validation @submit.prevent="handleSubmit">
     <v-text-field v-model="name" label="Nome" required></v-text-field>
 
+    <v-text-field v-model="nickName" label="NickName no Lol" required></v-text-field>
+
     <v-text-field v-model="email" label="E-mail" required></v-text-field>
 
     <v-text-field v-model="password" type="password" label="Senha" required></v-text-field>
@@ -30,6 +32,7 @@ export default {
   data() {
     return {
       name: "",
+      nickName: "",
       email: "",
       password: "",
       confirmPassword: "",
