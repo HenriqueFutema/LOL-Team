@@ -11,7 +11,8 @@
             <h3 class="font-weight-thin">{{ user.email }}</h3>
           </v-card-text>
           <v-btn class="ma-3 font-weight-thin" color="green" dark>
-            <v-icon left>person</v-icon>Comentar
+            <v-icon left>person</v-icon>
+            <span class="mr-1">Comentar</span>
           </v-btn>
         </v-card>
       </v-flex>
