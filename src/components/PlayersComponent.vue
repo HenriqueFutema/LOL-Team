@@ -16,7 +16,7 @@
           </v-btn>
         </v-card>
       </v-flex>
-      <ModalComment v-if="show" />
+      <ModalComment v-if="show" :closeModal="onCloseModal" />
     </v-layout>
   </v-container>
 </template>
@@ -49,8 +49,11 @@ export default {
   },
   methods: {
     onShowModal: function() {
-      this.show = true;
-      console.log(this.show);
+      return (this.show = true);
+    },
+
+    onCloseModal: function() {
+      return (this.show = false);
     }
   }
 };
