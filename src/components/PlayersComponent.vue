@@ -10,12 +10,13 @@
             <h3 class="font-weight-thin">{{ user.description }}</h3>
             <h3 class="font-weight-thin">{{ user.email }}</h3>
           </v-card-text>
-          <v-btn class="ma-3 font-weight-thin" color="green" dark>
+          <v-btn class="ma-3 font-weight-thin" color="green" dark @click="onShowModal">
             <v-icon left>person</v-icon>
             <span class="mr-1">Comentar</span>
           </v-btn>
         </v-card>
       </v-flex>
+      <ModalComment v-if="show" />
     </v-layout>
   </v-container>
 </template>
@@ -24,13 +25,19 @@
 import api from "../services/api";
 import { mapGetters } from "vuex";
 
+import ModalComment from "./ModelComment";
+
 export default {
+  components: {
+    ModalComment
+  },
   computed: {
     ...mapGetters(["getTokenUser"])
   },
   data() {
     return {
-      users: []
+      users: [],
+      show: false
     };
   },
   created: async function() {
@@ -39,6 +46,12 @@ export default {
     });
 
     this.users = response.data.docs;
+  },
+  methods: {
+    onShowModal: function() {
+      this.show = true;
+      console.log(this.show);
+    }
   }
 };
 </script>
