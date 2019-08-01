@@ -68,7 +68,7 @@ export default {
       }
       let that = this;
       const user = await api
-        .post("signup", { name, email, password })
+        .post("signup", { name, email, password, nickName })
         .then(function() {
           swal("Usuário criado!", "Usúario criado com sucesso", "success");
           that.$router.push({ name: "home", query: { redirect: "/" } });
