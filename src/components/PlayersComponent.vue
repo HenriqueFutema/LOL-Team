@@ -25,7 +25,7 @@
 import api from "../services/api";
 import { mapGetters } from "vuex";
 
-import ModalComment from "./ModelComment";
+import ModalComment from "./ModalComment";
 
 export default {
   components: {

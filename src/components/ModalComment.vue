@@ -20,7 +20,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="dark" text @click="closeModal">Close</v-btn>
+            <v-btn color="dark" text @click="closeModal">Fechar</v-btn>
             <v-btn color="green" text type="submit">Enviar</v-btn>
           </v-card-actions>
         </v-form>
