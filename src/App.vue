@@ -13,7 +13,7 @@
         </v-btn>
       </v-bottom-nav>
 
-      <v-bottom-nav absolute :value="true" color="transparent" center v-if="isLogged">
+      <v-bottom-nav :value="true" color="dark" center v-if="isLogged" fixed>
         <v-btn to="/players" color="white" flat value="players">
           <span>Players</span>
           <v-icon>person</v-icon>
