@@ -24,7 +24,7 @@
 <script>
 import { mapState, mapMutations } from "vuex";
 import api from "../services/api";
-
+import axios from "axios";
 import swal from "sweetalert";
 
 export default {
@@ -49,6 +49,18 @@ export default {
         confirmPassword,
         checkbox
       } = this;
+
+      const nick = await axios.get(
+        `https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${nickName}?api_key=RGAPI-fb19f859-b029-410c-90e4-add36e06cc64`,
+        {},
+        {
+          headers: { "Access-Control-Allow-Origin": "*" },
+          "Content-Type": "application/json;charset=utf-8"
+        }
+      );
+
+      console.log(nick);
+
       if (!name || !email || !password || !confirmPassword || !nickName) {
         swal("Erro", "Preencha todos os campos", "error");
         return;
