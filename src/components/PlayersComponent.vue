@@ -7,8 +7,9 @@
             <h1 class="font-weight-thin">{{ user.name }}</h1>
           </v-card-title>
           <v-card-text>
-            <h3 class="font-weight-thin">{{ user.description }}</h3>
+            <h3 class="font-weight-thin">Nick: {{ user.nickName }}</h3>
             <h3 class="font-weight-thin">{{ user.email }}</h3>
+            <h3 class="font-weight-thin">{{ user.description }}</h3>
           </v-card-text>
           <v-btn class="ma-3 font-weight-thin" color="green" dark @click="onShowModal(user)">
             <v-icon left>person</v-icon>

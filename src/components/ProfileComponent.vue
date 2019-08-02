@@ -8,7 +8,7 @@
           </v-card-title>
           <v-card-text>
             <h3 class="headline font-weight-thin border my-1">Nome: {{user.name}}</h3>
-            <h3 class="headline font-weight-thin border my-1">Nome: {{user.nickName}}</h3>
+            <h3 class="headline font-weight-thin border my-1">Nick: {{user.nickName}}</h3>
 
             <h3 class="title font-weight-thin my-1">Email: {{user.email}}</h3>
             <h3 class="subtitle-1 font-weight-thin my-1">Descrição: {{user.description}}</h3>
