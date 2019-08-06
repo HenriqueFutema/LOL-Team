@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import api from "../services/api";
+
 export default {
   props: {
     closeModal: Function,
@@ -47,11 +49,8 @@ export default {
       if (!title || !content) {
         this.er = true;
       } else {
-        
-
         this.closeModal();
       }
-
     }
   }
 };
