@@ -15,9 +15,17 @@
             <v-icon left>person</v-icon>
             <span class="mr-1">Comentar</span>
           </v-btn>
+          <v-alert
+            v-model="alert"
+            color="success"
+            border="left"
+            elevation="2"
+            colored-border
+          >Comentário Criado!</v-alert>
         </v-card>
         <ModalComment v-if="show" :closeModal="onCloseModal" :user="userModal" />
       </v-flex>
+      <div></div>
     </v-layout>
   </v-container>
 </template>
@@ -27,6 +35,7 @@ import api from "../services/api";
 import { mapGetters } from "vuex";
 
 import ModalComment from "./ModalComment";
+import { setTimeout } from "timers";
 
 export default {
   components: {
@@ -39,7 +48,8 @@ export default {
     return {
       users: [],
       userModal: {},
-      show: false
+      show: false,
+      alert: false
     };
   },
   created: async function() {
@@ -56,7 +66,9 @@ export default {
     },
 
     onCloseModal: function() {
-      return (this.show = false);
+      this.show = false;
+      this.alert = true;
+      setTimeout(() => (this.alert = false), 1000);
     }
   }
 };

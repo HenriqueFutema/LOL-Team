@@ -33,6 +33,7 @@
 import { mapGetters } from "vuex";
 
 import api from "../services/api";
+import { setTimeout } from "timers";
 
 export default {
   props: {
@@ -46,7 +47,8 @@ export default {
     er: false,
     dialog: true,
     title: "",
-    content: ""
+    content: "",
+    alert: false
   }),
   methods: {
     handleSubmit: async function() {
@@ -62,9 +64,6 @@ export default {
             headers: { Authorization: "Bearer " + this.getTokenUser }
           }
         );
-
-        console.log(comment);
-
         this.closeModal();
       }
     }
