@@ -30,12 +30,17 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import api from "../services/api";
 
 export default {
   props: {
     closeModal: Function,
     user: Object
+  },
+  computed: {
+    ...mapGetters(["getTokenUser"])
   },
   data: () => ({
     er: false,
@@ -45,10 +50,21 @@ export default {
   }),
   methods: {
     handleSubmit: async function() {
-      const { title, content } = this;
+      const { title, content, user } = this;
       if (!title || !content) {
         this.er = true;
       } else {
+        const id = user._id;
+        const comment = await api.post(
+          "comment",
+          { id, title, content },
+          {
+            headers: { Authorization: "Bearer " + this.getTokenUser }
+          }
+        );
+
+        console.log(comment);
+
         this.closeModal();
       }
     }
