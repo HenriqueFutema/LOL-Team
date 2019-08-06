@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         isLogged: false,
         idUser: '',
-        tokenUser: ''
+        tokenUser: '',
+        nickNameUser: ''
     },
     getters: {
         getIdUser: state => {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
         },
         getTokenUser: state => {
             return state.tokenUser
+        },
+        getNickName: state => {
+            return state.nickNameUser
         }
     },
     mutations: {
@@ -25,7 +29,7 @@ export default new Vuex.Store({
         SAVE_LOGIN: (state, data) => {
             state.idUser = data.user._id
             state.tokenUser = data.token
-
+            state.nickNameUser = data.nickName
         }
 
     },

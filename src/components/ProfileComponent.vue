@@ -15,7 +15,7 @@
           </v-card-text>
         </v-card>
       </v-flex>
-      <v-flex xs12 v-for="comment in user.comments" :key="comment._id">
+      <v-flex xs12 v-for="comment in comments" :key="comment._id">
         <v-card>
           <v-card-title>{{ comment.author }}</v-card-title>
         </v-card>
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  props: ["user"]
+  props: ["user", "comments"]
 };
 </script>
 
