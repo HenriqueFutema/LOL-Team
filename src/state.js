@@ -17,7 +17,7 @@ export default new Vuex.Store({
         getTokenUser: state => {
             return state.tokenUser
         },
-        getNickName: state => {
+        getNickNameUser: state => {
             return state.nickNameUser
         }
     },
@@ -29,7 +29,7 @@ export default new Vuex.Store({
         SAVE_LOGIN: (state, data) => {
             state.idUser = data.user._id
             state.tokenUser = data.token
-            state.nickNameUser = data.nickName
+            state.nickNameUser = data.user.nickName
         }
 
     },

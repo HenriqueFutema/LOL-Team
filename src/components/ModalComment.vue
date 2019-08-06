@@ -10,7 +10,7 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 md12>
-                  <v-text-field v-model="title" label="Assunto" required></v-text-field>
+                  <v-text-field v-model="assunto" label="Assunto" required></v-text-field>
 
                   <v-textarea outline name="input-7-4" label="Conteúdo" v-model="content"></v-textarea>
                 </v-flex>
@@ -41,19 +41,20 @@ export default {
     user: Object
   },
   computed: {
-    ...mapGetters(["getTokenUser"])
+    ...mapGetters(["getTokenUser", "getNickNameUser"])
   },
   data: () => ({
     er: false,
     dialog: true,
-    title: "",
+    assunto: "",
     content: "",
     alert: false
   }),
   methods: {
     handleSubmit: async function() {
-      const { title, content, user } = this;
-      if (!title || !content) {
+      const { assunto, content, user } = this;
+      const title = `${this.getNickNameUser}-${assunto}`;
+      if (!assunto || !content) {
         this.er = true;
       } else {
         const id = user._id;
