@@ -68,7 +68,7 @@ export default {
     onCloseModal: function() {
       this.show = false;
       this.alert = true;
-      setTimeout(() => (this.alert = false), 1000);
+      setTimeout(() => (this.alert = false), 1400);
     }
   }
 };

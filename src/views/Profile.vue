@@ -4,7 +4,7 @@
       <v-flex xs12>
         <h1 class="display-3 font-weight-thin">LOL Team</h1>
         <ModalDescription v-if="!user.description" v-bind:user="user" />
-        <ProfileComponent v-else v-bind:user="user" />
+        <ProfileComponent v-else :user="user" :comments="user.comments" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -41,7 +41,7 @@ export default {
       headers: { Authorization: "Bearer " + this.getTokenUser }
     });
     this.user = response.data;
-    console.log(this.user);
+    console.log(this.user.comments);
   }
 };
 </script>
