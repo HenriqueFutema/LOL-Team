@@ -47,8 +47,11 @@ export default {
       if (!title || !content) {
         this.er = true;
       } else {
+        
+
         this.closeModal();
       }
+
     }
   }
 };

@@ -2,7 +2,7 @@
   <v-container fluid grid-list-xl>
     <v-layout justify-space-between text-xs-left wrap>
       <v-flex xs12 md12 v-for="user in users" :key="user.id">
-        <v-card dark color="secondary" class="mb-3">
+        <v-card dark color="secondary" class="mb-3" v-if="getIdUser !== user._id">
           <v-card-title>
             <h1 class="font-weight-thin">{{ user.name }}</h1>
           </v-card-title>
@@ -33,7 +33,7 @@ export default {
     ModalComment
   },
   computed: {
-    ...mapGetters(["getTokenUser"])
+    ...mapGetters(["getTokenUser", "getIdUser"])
   },
   data() {
     return {
