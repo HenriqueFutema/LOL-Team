@@ -22,6 +22,7 @@
           <v-card-text>
             <h1
               class="display-1 font-weight-thin green--text"
+              @click="handleShowUser(comment.title.split('-')[0])"
             >{{ comment.title.split('-')[0] }} - {{ comment.title.split('-')[1] }}</h1>
             <h3 class="body-1 font-weight-thin border my-1">{{ comment.content }}</h3>
           </v-card-text>
@@ -34,7 +35,12 @@
 
 <script>
 export default {
-  props: { user: Object, comments: Array }
+  props: { user: Object, comments: Array },
+  methods: {
+    handleShowUser: async function(userComment) {
+      console.log(userComment);
+    }
+  }
 };
 </script>
 
