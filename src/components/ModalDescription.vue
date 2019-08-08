@@ -23,7 +23,7 @@ import api from "../services/api";
 import { mapGetters } from "vuex";
 
 export default {
-  props: ["user"],
+  props: { user: Object },
   data() {
     return {
       description: "",

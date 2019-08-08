@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  props: ["user", "comments"]
+  props: { user: Object, comments: Array }
 };
 </script>
 
