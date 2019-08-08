@@ -16,8 +16,11 @@
         </v-card>
       </v-flex>
       <v-flex xs12 v-for="comment in comments" :key="comment._id">
-        <v-card>
-          <v-card-title>{{ comment.author }}</v-card-title>
+        <v-card class="my-3">
+          <v-card-text>
+            <h1 class="display-1 font-weight-thin green--text">{{ comment.title }}</h1>
+            <h3 class="body-1 font-weight-thin border my-1">{{ comment.content }}</h3>
+          </v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
