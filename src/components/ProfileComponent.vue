@@ -27,6 +27,7 @@
             <h3 class="body-1 font-weight-thin border my-1">{{ comment.content }}</h3>
           </v-card-text>
         </v-card>
+        <ModalOnlyOne v-if="show" :closeModal="onCloseModal" :user="userModal" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -34,11 +35,30 @@
 
 
 <script>
+import api from "../services/api";
+
+import { mapGetters } from "vuex";
+import ModalOnlyOne from "../components/ModalOnlyOneComponent";
+
 export default {
+  components: {
+    ModalOnlyOne
+  },
+  computed: {
+    ...mapGetters(["getTokenUser"])
+  },
   props: { user: Object, comments: Array },
+
+  data: () => ({
+    show: false
+  }),
+
   methods: {
     handleShowUser: async function(userComment) {
-      console.log(userComment);
+      const user = await api.get(`user/by?nick=${userComment}`, {
+        headers: { Authorization: "Bearer " + this.getTokenUser }
+      });
+      console.log(userComment, user);
     }
   }
 };
