@@ -15,10 +15,14 @@
           </v-card-text>
         </v-card>
       </v-flex>
+      <h1 class="display-1 font-weight-thin mt-2">Comentários:</h1>
+
       <v-flex xs12 v-for="comment in comments" :key="comment._id">
         <v-card class="my-3">
           <v-card-text>
-            <h1 class="display-1 font-weight-thin green--text">{{ comment.title }}</h1>
+            <h1
+              class="display-1 font-weight-thin green--text"
+            >{{ comment.title.split('-')[0] }} - {{ comment.title.split('-')[1] }}</h1>
             <h3 class="body-1 font-weight-thin border my-1">{{ comment.content }}</h3>
           </v-card-text>
         </v-card>
