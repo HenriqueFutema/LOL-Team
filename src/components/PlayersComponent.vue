@@ -65,10 +65,15 @@ export default {
       this.userModal = user;
     },
 
-    onCloseModal: function() {
+    onCloseModal: function(status) {
       this.show = false;
-      this.alert = true;
-      setTimeout(() => (this.alert = false), 1400);
+
+      if (status) {
+        return;
+      } else {
+        this.alert = true;
+        setTimeout(() => (this.alert = false), 1400);
+      }
     }
   }
 };
