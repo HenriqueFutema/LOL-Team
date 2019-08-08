@@ -21,7 +21,7 @@
         <v-card class="my-3">
           <v-card-text>
             <h1
-              class="display-1 font-weight-thin green--text"
+              class="display-1 font-weight-thin green--text onNickname"
               @click="handleShowUser(comment.title.split('-')[0])"
             >{{ comment.title.split('-')[0] }} - {{ comment.title.split('-')[1] }}</h1>
             <h3 class="body-1 font-weight-thin border my-1">{{ comment.content }}</h3>
@@ -44,5 +44,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.onNickname:hover {
+  cursor: pointer;
+}
 </style>
