@@ -1,11 +1,17 @@
 <template>
-  <h1>Teams</h1>
+  <Team />
 </template>
 
 <script>
 import { mapState } from "vuex";
+
+import Team from "../components/TeamComponent";
+
 export default {
   computed: mapState(["isLogged"]),
+  components: {
+    Team
+  },
   data() {
     return {};
   },
