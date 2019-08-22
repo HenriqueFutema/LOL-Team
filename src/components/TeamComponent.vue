@@ -18,7 +18,7 @@
       </v-flex>
     </v-layout>
     <v-layout wrap>
-      <v-flex xs4 md4>
+      <v-flex xs4 md4 v-for="team in teams" :key="team._id">
         <OneTeam />
       </v-flex>
     </v-layout>
@@ -42,6 +42,7 @@ export default {
   },
 
   data: () => ({
+    teams: [],
     nameTeam: ""
   }),
 
@@ -50,6 +51,8 @@ export default {
       headers: { Authorization: "Bearer " + this.getTokenUser }
     });
     console.log(teams);
+
+    this.teams = teams.data;
   }
 };
 </script>
