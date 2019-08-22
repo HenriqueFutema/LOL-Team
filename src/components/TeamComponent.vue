@@ -17,24 +17,40 @@
         </v-form>
       </v-flex>
     </v-layout>
-
-    <v-layout>
-      <oneTeam />
+    <v-layout wrap>
+      <v-flex xs4 md4>
+        <OneTeam />
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import oneTeam from "./oneTeamComponent";
+import api from "../services/api";
+
+import { mapGetters } from "vuex";
+
+import OneTeam from "./OneTeamComponent";
 
 export default {
   components: {
-    oneTeam
+    OneTeam
+  },
+
+  computed: {
+    ...mapGetters(["getTokenUser"])
   },
 
   data: () => ({
     nameTeam: ""
-  })
+  }),
+
+  created: async function() {
+    const teams = await api.get("teams", {
+      headers: { Authorization: "Bearer " + this.getTokenUser }
+    });
+    console.log(teams);
+  }
 };
 </script>
 
