@@ -33,8 +33,8 @@ export default {
     };
   },
   created: async function() {
-    if (!this.isLogged) {
-      this.$router.push({ name: "home", query: { redirect: "/" } });
+    if (await(!this.isLogged)) {
+      await this.$router.push({ name: "home", query: { redirect: "/" } });
     }
 
     const response = await api.get(`users/${this.getIdUser}`, {

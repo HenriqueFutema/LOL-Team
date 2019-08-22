@@ -21,9 +21,9 @@ export default {
   data() {
     return {};
   },
-  created: function() {
-    if (!this.isLogged) {
-      this.$router.push({ name: "home", query: { redirect: "/" } });
+  created: async function() {
+    if (await !this.isLogged) {
+      await this.$router.push({ name: "home", query: { redirect: "/" } });
     }
   }
 };
