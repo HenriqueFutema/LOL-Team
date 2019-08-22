@@ -19,7 +19,7 @@
     </v-layout>
     <v-layout wrap>
       <v-flex xs4 md4 v-for="team in teams" :key="team._id">
-        <OneTeam />
+        <OneTeam :team="team" />
       </v-flex>
     </v-layout>
   </v-container>
