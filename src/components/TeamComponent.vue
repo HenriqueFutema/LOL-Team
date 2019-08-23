@@ -18,7 +18,7 @@
       </v-flex>
     </v-layout>
     <v-layout wrap>
-      <v-flex xs4 md4 v-for="team in teams" :key="team._id">
+      <v-flex xs12 md12 v-for="team in teams" :key="team._id">
         <OneTeam :team="team" />
       </v-flex>
     </v-layout>
