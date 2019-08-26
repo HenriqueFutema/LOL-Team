@@ -22,6 +22,7 @@
         <OneTeam :team="team" />
       </v-flex>
     </v-layout>
+            <ModalTeam v-if="show" :closeModal="onCloseModal"/>
   </v-container>
 </template>
 
@@ -31,10 +32,12 @@ import api from "../services/api";
 import { mapGetters } from "vuex";
 
 import OneTeam from "./OneTeamComponent";
+import ModalTeam from './ModalTeam'
 
 export default {
   components: {
-    OneTeam
+    OneTeam,
+    ModalTeam
   },
 
   computed: {
@@ -43,7 +46,8 @@ export default {
 
   data: () => ({
     teams: [],
-    nameTeam: ""
+    nameTeam: "",
+    show: true
   }),
 
   created: async function() {
