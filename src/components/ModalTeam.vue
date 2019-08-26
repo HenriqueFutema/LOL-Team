@@ -4,15 +4,15 @@
       <v-card>
         <v-form ref="form" lazy-validation>
           <v-card-title>
-            <span class="headline">asass</span>
+            <span class="headline">Novo Time</span>
           </v-card-title>
           <v-card-text>
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 md12>
-                  <v-text-field label="Assunto" required></v-text-field>
+                  <v-text-field label="Nome do Time" required v-model="name"></v-text-field>
 
-                  <v-textarea outline name="input-7-4" label="Conteúdo"></v-textarea>
+                  <v-textarea outline name="input-7-4" label="Detalhes da vaga" v-model="details"></v-textarea>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -36,6 +36,8 @@ export default {
     closeModal: Function
   },
   data: () => ({
+    name: "",
+    details: "",
     dialog: true
   })
 };
