@@ -2,7 +2,7 @@
   <v-layout justify-center>
     <v-dialog v-model="dialog" persistent max-width="600px">
       <v-card>
-        <v-form ref="form" lazy-validation>
+        <v-form ref="form" lazy-validation @submit.prevent="handleSubmit">
           <v-card-title>
             <span class="headline">Novo Time</span>
           </v-card-title>
@@ -12,7 +12,12 @@
                 <v-flex xs12 md12>
                   <v-text-field label="Nome do Time" required v-model="name"></v-text-field>
 
-                  <v-textarea outline name="input-7-4" label="Detalhes da vaga" v-model="details"></v-textarea>
+                  <v-textarea
+                    outline
+                    name="input-7-4"
+                    label="Detalhes da vaga"
+                    v-model="description"
+                  ></v-textarea>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -31,15 +36,43 @@
 
 
 <script>
+import api from "../services/api";
+
+import { mapGetters } from "vuex";
+
 export default {
   props: {
     closeModal: Function
   },
+
+  computed: {
+    ...mapGetters(["getIdUser", "getTokenUser"])
+  },
+
   data: () => ({
     name: "",
-    details: "",
+    description: "",
     dialog: true
-  })
+  }),
+
+  methods: {
+    handleSubmit: async function() {
+      console.log("asas");
+
+      const { name, description } = this;
+
+      const founder = this.getIdUser;
+
+      const team = await api.post(
+        "team",
+        { founder, name, description },
+        {
+          headers: { Authorization: "Bearer " + this.getTokenUser }
+        }
+      );
+      console.log(team);
+    }
+  }
 };
 </script>
 
