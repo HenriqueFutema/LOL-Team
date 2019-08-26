@@ -16,7 +16,7 @@
                 </v-flex>
               </v-layout>
             </v-container>
-            <small v-if="er" class="red--text">*Preencher todos os campos</small>
+            <small class="red--text">*Preencher todos os campos</small>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
