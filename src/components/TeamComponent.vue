@@ -5,7 +5,7 @@
         <h1 class="display-3 font-weight-thin">Team</h1>
       </v-flex>
       <v-flex xs12 md12>
-        <v-btn block class="font-weight-thin" color="green" dark>Criar Time</v-btn>
+        <v-btn block class="font-weight-thin" color="green" dark @click="onShowModal">Criar Time</v-btn>
       </v-flex>
       <v-flex xs12 md9 class="mt-4">
         <v-text-field label="Nome de um Time" v-model="nameTeam" color="green" dark outlined></v-text-field>
@@ -47,7 +47,7 @@ export default {
   data: () => ({
     teams: [],
     nameTeam: "",
-    show: true
+    show: false
   }),
 
   created: async function() {
@@ -59,6 +59,10 @@ export default {
   },
 
   methods: {
+    onShowModal: function() {
+      this.show = true;
+    },
+
     onCloseModal: function() {
       this.show = false;
     }

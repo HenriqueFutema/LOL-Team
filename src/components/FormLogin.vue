@@ -28,6 +28,7 @@ export default {
         swal("Erro", "Preencha todos o campos", "error");
         return;
       }
+
       let that = this;
 
       await api
