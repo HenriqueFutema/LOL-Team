@@ -46,6 +46,11 @@ export default {
       }
     });
 
+    if (this.team.founder === idUser) {
+      this.isCandidate = true
+    }
+    
+
     this.name = founder.data.name;
   }
 };
