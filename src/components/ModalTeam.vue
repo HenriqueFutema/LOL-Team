@@ -57,8 +57,6 @@ export default {
 
   methods: {
     handleSubmit: async function() {
-      console.log("asas");
-
       const { name, description } = this;
 
       const founder = this.getIdUser;
@@ -71,6 +69,8 @@ export default {
         }
       );
       console.log(team);
+      this.dialog = false
+      this.props.closeModal
     }
   }
 };
