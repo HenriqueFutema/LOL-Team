@@ -12,8 +12,8 @@
       </v-flex>
       <v-flex xs12 md1></v-flex>
       <v-flex xs12 md2 class="mt-4">
-        <v-form>
-          <v-btn block class="font-weight-thin" color="green" dark>Pesquisar</v-btn>
+        <v-form @submit.prevent="handleSubmit">
+          <v-btn block class="font-weight-thin" color="green" dark type="submit">Pesquisar</v-btn>
         </v-form>
       </v-flex>
     </v-layout>
@@ -59,6 +59,18 @@ export default {
   },
 
   methods: {
+
+    handleSubmit: async function(){
+
+      const team = await api.get(`team/${this.nameTeam}`, {
+        headers: { Authorization: "Bearer " + this.getTokenUser }
+      });
+
+      console.log(team);
+      
+
+    },
+
     onShowModal: function() {
       this.show = true;
     },
