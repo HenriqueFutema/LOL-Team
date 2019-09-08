@@ -62,9 +62,17 @@ export default {
 
     handleSubmit: async function(){
 
+      if (!this.nameTeam) {
+        return;
+      }
+
       const team = await api.get(`team/${this.nameTeam}`, {
         headers: { Authorization: "Bearer " + this.getTokenUser }
       });
+
+      if (!team) {
+        return;
+      }
 
       this.teams = [team.data]
             
