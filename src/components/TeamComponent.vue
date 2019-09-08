@@ -66,9 +66,10 @@ export default {
         headers: { Authorization: "Bearer " + this.getTokenUser }
       });
 
-      console.log(team);
+      this.teams = [team]
       
-
+      console.log(this.teams);
+      
     },
 
     onShowModal: function() {
