@@ -34,8 +34,6 @@ export default {
       await api
         .post("signin", { email, password })
         .then(function(response) {
-          console.log(email, password);
-          console.log(response.data);
 
           const data = response.data;
           that.CHANGE_LOGIN();

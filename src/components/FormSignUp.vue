@@ -72,7 +72,6 @@ export default {
         .then(function() {
           swal("Usuário criado!", "Usúario criado com sucesso", "success");
           that.$router.push({ name: "home", query: { redirect: "/" } });
-          console.log("test");
         })
         .catch(function(error) {
           console.log(error);

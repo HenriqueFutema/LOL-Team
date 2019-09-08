@@ -67,9 +67,7 @@ export default {
       });
 
       this.teams = [team.data]
-      
-      console.log(this.teams);
-      
+            
     },
 
     onShowModal: function() {
