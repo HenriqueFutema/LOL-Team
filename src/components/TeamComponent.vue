@@ -62,12 +62,14 @@ export default {
 
     handleSubmit: async function(){
 
-      if (!this.nameTeam) {
+      const { nameTeam, getTokenUser } = this
+
+      if (!nameTeam) {
         return;
       }
 
-      const team = await api.get(`team/${this.nameTeam}`, {
-        headers: { Authorization: "Bearer " + this.getTokenUser }
+      const team = await api.get(`team/${nameTeam}`, {
+        headers: { Authorization: "Bearer " + getTokenUser }
       });
 
       if (!team) {
