@@ -39,6 +39,9 @@ export default {
 
   created: async function() {
     const founder = await api.get(`users/${this.team.founder}`);
+    
+    console.log(founder);
+    
 
     const idUser = this.getIdUser;
 

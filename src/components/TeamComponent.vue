@@ -66,7 +66,7 @@ export default {
         headers: { Authorization: "Bearer " + this.getTokenUser }
       });
 
-      this.teams = [team]
+      this.teams = [team.data]
       
       console.log(this.teams);
       
