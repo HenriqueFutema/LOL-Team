@@ -74,7 +74,8 @@ export default {
           that.$router.push({ name: "home", query: { redirect: "/" } });
         })
         .catch(function(error) {
-          console.log(error);
+          let err = error.response.data;
+          swal(`${err}`, "Tente novamente", "error");
         });
     }
   }
